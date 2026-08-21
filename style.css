@@ -1,0 +1,737 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #08040a;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 45, 120, 0.16), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(170, 60, 255, 0.14), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(255, 70, 100, 0.10), transparent 35%);
+
+    pointer-events: none;
+    z-index: -2;
+}
+
+
+/* MUSIC */
+
+.music-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-size: 19px;
+
+    cursor: pointer;
+    z-index: 100;
+
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 70, 130, 0.25);
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 60px 20px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.small-title {
+    color: #f5a7c4;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(65px, 10vw, 125px);
+
+    font-weight: 400;
+
+    color: #fff;
+
+    line-height: 1;
+}
+
+.hero h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(35px, 6vw, 70px);
+
+    letter-spacing: 7px;
+
+    margin-top: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #ffb6d5,
+        #fff,
+        #dba8ff,
+        #ffb6d5
+    );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: gradientMove 5s infinite;
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+
+}
+
+.heart {
+    font-size: 55px;
+
+    color: #ff477e;
+
+    margin: 25px;
+
+    animation: heartbeat 1.5s infinite;
+
+    text-shadow:
+        0 0 15px #ff477e,
+        0 0 40px rgba(255,71,126,0.7);
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+.date {
+    font-family: "Playfair Display", serif;
+
+    font-size: 22px;
+
+    letter-spacing: 8px;
+
+    color: #e8bfd0;
+
+    margin-bottom: 25px;
+}
+
+.intro {
+    color: #aaa0aa;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+    margin-bottom: 35px;
+}
+
+
+/* BUTTON */
+
+.scroll-btn,
+.gift-btn {
+
+    padding: 15px 27px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,72,126,0.8),
+            rgba(150,67,255,0.8)
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 50px rgba(255,50,120,0.2);
+
+    transition: 0.3s;
+}
+
+.scroll-btn:hover,
+.gift-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 60px rgba(255,50,120,0.35);
+}
+
+
+/* GLOW */
+
+.glow {
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,55,130,0.12),
+            transparent 70%
+        );
+
+    animation: glowPulse 5s infinite;
+
+}
+
+@keyframes glowPulse {
+
+    0%,100% {
+        transform: scale(0.9);
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+}
+
+
+/* COUNTDOWN */
+
+.countdown-section {
+
+    padding: 120px 7%;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.section-label {
+
+    color: #e987aa;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.countdown-section h2,
+.reasons h2,
+.surprise-section h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(32px, 5vw, 55px);
+
+    margin-bottom: 50px;
+}
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.time-box {
+
+    width: 130px;
+
+    padding: 25px 15px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.02)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter: blur(15px);
+}
+
+.time-box span {
+
+    display: block;
+
+    font-size: 40px;
+
+    font-weight: 600;
+
+    color: #ffc1d8;
+}
+
+.time-box small {
+
+    color: #8e858e;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 9px;
+}
+
+
+/* MESSAGE */
+
+.message-section {
+
+    padding: 120px 20px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.letter {
+
+    max-width: 850px;
+
+    padding: 60px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.4);
+}
+
+.letter h2 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 55px;
+
+    color: #ffb5d1;
+
+    margin-bottom: 25px;
+}
+
+.letter p {
+
+    color: #b5abb3;
+
+    line-height: 2;
+
+    font-size: 15px;
+
+    margin-bottom: 20px;
+}
+
+.signature {
+
+    margin-top: 35px;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 30px;
+
+    color: #eaa9c2;
+}
+
+.signature span {
+
+    font-size: 25px;
+
+    color: #fff;
+}
+
+
+/* REASONS */
+
+.reasons {
+
+    padding: 100px 7%;
+
+    text-align: center;
+}
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.card {
+
+    padding: 40px 30px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    transition: 0.4s;
+}
+
+.card:hover {
+
+    transform: translateY(-10px);
+
+    border-color:
+        rgba(255,105,155,0.5);
+}
+
+.card > div {
+
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.card h3 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 24px;
+
+    margin-bottom: 12px;
+}
+
+.card p {
+
+    color: #8e878e;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* SURPRISE */
+
+.surprise-section {
+
+    padding: 140px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,55,120,0.09),
+            transparent 50%
+        );
+}
+
+.gift {
+
+    font-size: 100px;
+
+    cursor: pointer;
+
+    animation: giftFloat 3s infinite;
+
+    margin-bottom: 30px;
+}
+
+@keyframes giftFloat {
+
+    0%,100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+
+}
+
+.gift-message {
+
+    max-width: 650px;
+
+    margin: 40px auto 0;
+
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    display: none;
+
+    animation: reveal 0.8s ease;
+}
+
+.gift-message.show {
+
+    display: block;
+}
+
+.big-heart {
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.gift-message h2 {
+
+    margin-bottom: 20px;
+
+    font-size: 30px;
+}
+
+.gift-message p {
+
+    color: #aaa0aa;
+
+    line-height: 1.8;
+}
+
+@keyframes reveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* FOOTER */
+
+footer {
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.footer-heart {
+
+    color: #ff477e;
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+footer h3 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 40px;
+
+    color: #f2b2cb;
+}
+
+footer p {
+
+    color: #777078;
+
+    margin: 10px 0 20px;
+}
+
+footer small {
+
+    color: #555057;
+
+    letter-spacing: 3px;
+}
+
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+
+    position: fixed;
+
+    bottom: -30px;
+
+    color: rgba(255,100,150,0.5);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    animation:
+        floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 750px) {
+
+    .hero h2 {
+        letter-spacing: 3px;
+    }
+
+    .date {
+        letter-spacing: 4px;
+    }
+
+    .countdown {
+        gap: 10px;
+    }
+
+    .time-box {
+        width: 110px;
+    }
+
+    .letter {
+        padding: 35px 25px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .music-btn {
+        top: 15px;
+        right: 15px;
+    }
+}
